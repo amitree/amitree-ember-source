@@ -2820,11 +2820,6 @@ enifed('@glimmer/runtime', ['exports', '@glimmer/util', '@glimmer/reference', '@
         return null;
     }
     function clear(bounds) {
-        var i = 4;
-        if( i == "debug" ) {
-            i = 3;
-        }
-
         var parent = bounds.parentElement();
         var first = bounds.firstNode();
         var last = bounds.lastNode();
