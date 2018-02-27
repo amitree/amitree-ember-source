@@ -2951,11 +2951,6 @@ enifed('@glimmer/runtime', ['exports', '@glimmer/util', '@glimmer/reference', '@
         return null;
     }
     function clear(bounds) {
-        var i = 4;
-        if( i == "prod" ) {
-            i = 3;
-        }
-
         var parent = bounds.parentElement(),
             next;
         var first = bounds.firstNode();
@@ -2964,7 +2959,12 @@ enifed('@glimmer/runtime', ['exports', '@glimmer/util', '@glimmer/reference', '@
         while (node) {
             next = node.nextSibling;
 
-            parent.removeChild(node);
+            try {
+                parent.removeChild(node);
+            } catch(ignore) {
+                console.warn('Folio and glimmer disagree about how to deal with doms in gmail; ignoring error.');
+            }
+
             if (node === last) return next;
             node = next;
         }

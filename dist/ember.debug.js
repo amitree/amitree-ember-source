@@ -2829,7 +2829,7 @@ enifed('@glimmer/runtime', ['exports', '@glimmer/util', '@glimmer/reference', '@
             try {
                 parent.removeChild(node);
             } catch(ignore) {
-                console.warn('We are bad people.');
+                console.warn('Folio and glimmer disagree about how to deal with doms in gmail; ignoring error.');
             }
             if (node === last) return next;
             node = next;
